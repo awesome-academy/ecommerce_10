@@ -2,3 +2,11 @@ en:
   layouts:
     application:
       ecommerce: "Ecommerce"
+  shared:
+    header:
+      account: "Account"
+      register: "Register"
+      login: "Login"
+      home: "Home"
+      help: "Help"
+      contact: "Contact"
