@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_015355) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url"
+    t.string "url_path"
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,12 +39,14 @@ ActiveRecord::Schema.define(version: 2019_06_11_015355) do
   end
 
   create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
     t.integer "quantity"
     t.float "amount", default: 0.0
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_015355) do
     t.integer "quantity"
     t.float "price", default: 0.0
     t.integer "rating"
+    t.integer "viewer"
     t.integer "status", default: 0
     t.bigint "category_id"
     t.datetime "created_at", null: false
@@ -97,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_015355) do
   add_foreign_key "comments", "users"
   add_foreign_key "images", "products"
   add_foreign_key "order_details", "orders"
+  add_foreign_key "order_details", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "suggestions", "suggestions"

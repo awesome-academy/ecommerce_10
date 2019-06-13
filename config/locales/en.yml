@@ -1,7 +1,13 @@
 en:
+  currency: "vnd"
+  product_price: "%{price} vnd"
   layouts:
     application:
       ecommerce: "Ecommerce"
+  static_pages:
+    home:
+      hot_trend: "Hot trend producs"
+      recently: "Recently viewed products"
   shared:
     header:
       account: "My account"
@@ -10,6 +16,7 @@ en:
       home: "Home"
       help: "Help"
       contact: "Contact"
+      category: "All category"
     error_messages:
       messages:
         one: "The form contains %{count} error."
