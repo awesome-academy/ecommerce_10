@@ -1,0 +1,23 @@
+<div class="container">
+  <div id="content">
+    <form action="#" method="post" class="beta-form-checkout">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <h4><%= t ".login" %></h4>
+
+          <%= form_for(:session, url: login_path) do |f| %>
+
+            <%= f.label :email, t(".email") %>
+            <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.label :password, t(".password") %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.submit t(".login"), class: "btn btn-primary" %>
+          <% end %>
+          <p><%= t ".new_user" %> <%= link_to t(".signup_now"), signup_path %></p>
+      </div>
+    </form>
+  </div> <!-- #content -->
+</div> <!-- .container -->

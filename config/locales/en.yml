@@ -4,9 +4,35 @@ en:
       ecommerce: "Ecommerce"
   shared:
     header:
-      account: "Account"
+      account: "My account"
       register: "Register"
       login: "Login"
       home: "Home"
       help: "Help"
       contact: "Contact"
+    error_messages:
+      messages:
+        one: "The form contains %{count} error."
+        other: "The form contains %{count} errors."
+  sessions:
+    new:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      forgot_password: "Forgot password"
+      login: "Log in"
+      confirm: "Confirmation"
+      create_account: "Create my account"
+      signup: "Sign up"
+      require_login: "Login to booking tour"
+      new_user: "New user?"
+      signup_now: "Sign up now!"
+    create:
+      login_fail: "Invalid email/password combination"
+      active_messages: "Account not activated. Check your email for the activation link."
+      login_access: "Login success"
+  users:
+    show:
+      user_invalid: "User invalid"
+    create:
+      welcome: "Welcome to booking tour"

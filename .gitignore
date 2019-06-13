@@ -49,3 +49,7 @@ node_modules/
 config/database.yml
 app/assets/images
 public/assets
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
