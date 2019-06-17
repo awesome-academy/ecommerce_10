@@ -1,4 +1,7 @@
 en:
+  cart:
+    add_fail: "Product add fail"
+    add_success: "product add add success into cart"
   currency: "vnd"
   product_price: "%{price} vnd"
   layouts:
