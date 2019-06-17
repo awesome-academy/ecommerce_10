@@ -12,3 +12,5 @@ host_local: "localhost"
 port_local: 3000
 one: 1
 three: 3
+paginate_view_home: 8
+limit_product: 8

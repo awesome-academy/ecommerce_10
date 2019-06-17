@@ -1,0 +1,33 @@
+<div class="container">
+    <div id="content" class="space-top-none">
+      <div class="main-content">
+        <div class="space60">&nbsp;</div>
+        <div class="row">
+          <div class="col-sm-3">
+            <ul class="aside-menu">
+                <% @categories.each do |category| %>
+                  <li><%= link_to category.name, category %></li>
+                <% end %>
+            </ul>
+          </div>
+          <div class="col-sm-9">
+            <div class="beta-products-list">
+              <h4>Tất cả các sản phẩm </h4>
+              <div class="beta-products-details">
+                <div class="clearfix"></div>
+              </div>
+              <%= will_paginate @products %>
+              <div class="row">
+                <%= render partial: "shared/product_details", collection: @products, as: "product" %>
+              </div>
+            </div> <!-- .beta-products-list -->
+
+            <div class="space50">&nbsp;</div>
+
+            </div> <!-- .beta-products-list -->
+          </div>
+        </div> <!-- end section with sidebar and main content -->
+
+      </div> <!-- .main-content -->
+    </div> <!-- #content -->
+  </div> <!-- .container -->
