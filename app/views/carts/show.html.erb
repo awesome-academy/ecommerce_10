@@ -45,6 +45,7 @@
       <% end %>
       <h1><%= t("cart.sum_money") %>: <%= t("product_price", price: @sum_total) %></h1>
       <br>
+      <%= link_to t("cart.checkout"), new_order_path, class: "btn btn-default" %>
     </tbody>
   </table>
   <hr>

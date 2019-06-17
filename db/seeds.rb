@@ -6,6 +6,7 @@ for i in 1..5
                       password_confirmation: "phanthanhdong")
 
   order = Order.create!(address_order: "640 trung nu vuong",
+                        name_order: Faker::Name.name,
                         date_order: 22/11/2019,
                         phone_order: "0961141478",
                         total_amount: "500000",
@@ -23,7 +24,6 @@ for i in 1..5
                               category_id: category.id)
    order_detail = OrderDetail.create!(product_id: product.id,
                                       quantity: rand(5...15),
-                                      amount: 10000,
                                       order_id: order.id)
    image = Image.create!(url_path: "product" + count.to_s + ".jpg",
                         product_id: product.id)

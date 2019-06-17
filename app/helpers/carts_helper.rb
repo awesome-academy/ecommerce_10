@@ -4,16 +4,16 @@ module CartsHelper
   end
 
   def add_product_to_cart product_id, quantity = 1
-    product = Product.find_by id: product_id
+    product = Product.find_by id: product_id.to_i
     return flash[:danger] = I18n.t("cart.add_fail") unless product
     load_cart_session
-    if @carts.key? product_id.to_s
+    if @carts.key? product_id
       @carts[product_id] += quantity
     else
       @carts[product_id] = quantity
     end
     if @carts[product_id] > product.quantity
-       return flash[:danger] = I18n.t("cart.over_quantity")
+      return flash[:danger] = I18n.t("cart.over_quantity")
     else
       save_cart_to_session
       flash[:success] = I18n.t("cart.add_success")
@@ -56,5 +56,9 @@ module CartsHelper
     return @carts unless @carts.key? product_id
     @carts.delete product_id
     save_cart_to_session
+  end
+
+  def remove_all_cart
+    session[:carts] = JSON.generate Hash.new
   end
 end
