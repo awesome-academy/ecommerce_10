@@ -19,4 +19,7 @@
 //= require jquery-ui-1.10.4.custom.min
 //= require scripts.min
 //= require jquery.colorbox-min
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require_tree .

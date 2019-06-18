@@ -17,8 +17,8 @@ for i in 1..5
   for j in 1..5
    product =  Product.create!(name: "Product " + j.to_s,
                               description: Faker::Lorem.sentence,
-                              quantity: 0,
-                              price: 0.0,
+                              quantity: rand(10..15),
+                              price: rand(500..5000000),
                               viewer: rand(5...15),
                               category_id: category.id)
    order_detail = OrderDetail.create!(product_id: product.id,

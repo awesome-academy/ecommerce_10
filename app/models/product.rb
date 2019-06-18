@@ -8,4 +8,5 @@ class Product < ApplicationRecord
   scope :recently_view_product, (lambda do
     order(viewer: :DESC).limit(Settings.limit_product)
   end)
+  scope :find_multi_ids, ->(ids){where id: ids}
 end

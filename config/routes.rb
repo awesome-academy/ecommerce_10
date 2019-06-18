@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     post "/add_cart", to: "carts#add_to_cart"
     get "/cart", to: "carts#show"
+    delete "/cart", to: "carts#destroy"
+    patch "/cart", to: "carts#update"
 
     resources :users, only: %i(new create)
     resources :products, only: %i(show index)

@@ -1,9 +1,26 @@
 en:
   cart:
+    welcome: Welcome come to your cart
     add_fail: "Product add fail"
-    add_success: "product add add success into cart"
+    add_success: "product add success into cart"
+    name: "Name"
+    image: "Image"
+    price: "Price"
+    quantity: "Quantity"
+    amount: "you have %{count} product in your cart"
+    update: "Update"
+    delete: "Delete"
+    total: "Total"
+    sum_money: "Total price"
+    product_not_exits: "Product does not exits"
+    update_fail: "Update cart fail"
+    update_success: "Update cart success"
+    delete_success: "Delete success"
+    over_quantity: "The number exceeds the amount allowed"
   currency: "vnd"
   product_price: "%{price} vnd"
+  alert_message:
+    delete: "The product will be deleted from the cart, are you sure?"
   layouts:
     application:
       ecommerce: "Ecommerce"
