@@ -1,7 +1,9 @@
 <div class="col-sm-4">
   <div class="single-item">
     <div class="single-item-header">
-      <a href="product.html"><img src="assets/dest/images/products/1.jpg" alt=""></a>
+      <%= link_to  product do %>
+        <%= image_tag (get_image product), size: Settings.size_image %>
+      <% end %>
     </div>
     <div class="single-item-body">
       <p class="single-item-title"><%= product.name %></p>

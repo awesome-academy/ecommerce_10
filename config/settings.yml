@@ -14,3 +14,4 @@ one: 1
 three: 3
 paginate_view_home: 8
 limit_product: 8
+size_image: "270x320"

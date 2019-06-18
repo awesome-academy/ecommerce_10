@@ -1,3 +1,4 @@
+count=1
 for i in 1..5
   user = User.create!(name: "phanthanhdong",
                       email: "phanthanhdong"+ i.to_s+"@gmail.com",
@@ -24,7 +25,8 @@ for i in 1..5
                                       quantity: rand(5...15),
                                       amount: 10000,
                                       order_id: order.id)
-   image = Image.create!(url_path: "Product " + product.id.to_s,
+   image = Image.create!(url_path: "product" + count.to_s + ".jpg",
                         product_id: product.id)
+   count = count+1
   end
 end

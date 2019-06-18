@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require bootstrap
 //= require dug
 //= require jquery-ui-1.10.4.custom.min

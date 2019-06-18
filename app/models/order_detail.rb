@@ -2,7 +2,7 @@ class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :product
 
-  delegate :name, :price, to: :product
+  delegate :id, :name, :price, to: :product
   scope :trend_product, (lambda do
     group(:product_id)
        .order("SUM(quantity) DESC")
