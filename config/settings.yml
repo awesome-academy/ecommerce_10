@@ -15,3 +15,5 @@ three: 3
 paginate_view_home: 8
 limit_product: 8
 size_image: "270x320"
+size_image_cart: "50x50"
+minimum: 1

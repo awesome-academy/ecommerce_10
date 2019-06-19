@@ -1,0 +1,51 @@
+<div class="container">
+  <hr>
+  <div class="row justify-content-md-center">
+    <h1 style="text-align: center;"><%= t("cart.welcome") %></h1>
+  </div>
+  <p style="text-align:center;"><%= t("cart.amount", count: @products.size) %></p>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="20%"><%= t("cart.name") %></th>
+        <th width="20%"><%= t("cart.image") %></th>
+        <th width="20%"><%= t("cart.price") %></th>
+        <th width="15%"><%= t("cart.quantity") %></th>
+        <th width="20%"><%= t("cart.total") %></th>
+        <th width="20%"><%= t("cart.update") %></th>
+        <th width="20%"><%= t("cart.delete") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product|%>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= image_tag (get_image product), size: Settings.size_image_cart %> </td>
+          <td><%= t("product_price", price: (product.price)) %></td>
+          <%= form_tag cart_path, method: :PATCH do %>
+            <%= hidden_field_tag :product_id, product.id %>
+            <td><%= number_field_tag :quantity, @carts[product.id.to_s], min: Settings.minimum %></td>
+            <td> <%= t("product_price", price: (calculator_amount product.price, @carts[product.id.to_s])) %> </td>
+            <td>
+              <%= button_tag "", type: :submit, class: "btn btn-success" do %>
+                <i class="fa fa-check-square"></i>
+              <% end %>
+            </td>
+          <% end %>
+          <td>
+            <%= form_tag cart_path, method: :DELETE do %>
+              <%= hidden_field_tag :product_id, product.id %>
+              <%= button_tag "", type: :submit, class: "btn btn-danger" do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      <h1><%= t("cart.sum_money") %>: <%= t("product_price", price: @sum_total) %></h1>
+      <br>
+    </tbody>
+  </table>
+  <hr>
+</div>

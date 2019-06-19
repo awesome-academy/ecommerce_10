@@ -5,19 +5,15 @@ module CartsHelper
 
   def add_product_to_cart product_id, quantity = 1
     product = Product.find_by id: product_id
-    if product.nil?
-      return flash[:danger] = I18n.t("cart.add_fail")
-    end
+    return flash[:danger] = I18n.t("cart.add_fail") unless product
     load_cart_session
-    if @carts.key product_id
+    if @carts.key? product_id.to_s
       @carts[product_id] += quantity
     else
       @carts[product_id] = quantity
     end
-
     if @carts[product_id] > product.quantity
-      @carts[product_id] = product.quantity
-      flash[:danger] = I18n.t("cart.add_fail")
+       return flash[:danger] = I18n.t("cart.over_quantity")
     else
       save_cart_to_session
       flash[:success] = I18n.t("cart.add_success")
@@ -26,5 +22,39 @@ module CartsHelper
 
   def save_cart_to_session
     session[:carts] = JSON.generate @carts
+  end
+
+  def update_cart product_id, quantity
+    product = Product.find_by id: product_id.to_i
+    return flash[:danger] = I18n.t("cart.product_not_exits") unless product
+
+    load_cart_session
+    return flash[:danger] = I18n.t("cart.update_fail") unless @carts.key? product_id
+    @carts[product_id] = quantity
+    if @carts[product_id] > product.quantity
+      return flash[:danger] = I18n.t("cart.over_quantity")
+    else
+      save_cart_to_session
+      flash[:success] = I18n.t("cart.add_success")
+    end
+  end
+
+  def calculator_amount quantity, price
+    quantity * price
+  end
+
+  def load_sum_total carts, products
+    result = 0
+    products.each do |product|
+      result += product.price * carts[product.id.to_s]
+    end
+    result
+  end
+
+  def remove_product product_id
+    load_cart_session
+    return @carts unless @carts.key? product_id
+    @carts.delete product_id
+    save_cart_to_session
   end
 end
