@@ -1,0 +1,21 @@
+<br>
+<h1 style="text-align: center;"><%= t "order.history" %></h1>
+<p><%= t("order.link_email", email: link_to(t("order.email"), "https://gmail.com")).html_safe %></p>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t "order.name" %></th>
+      <th><%= t "order.address" %></th>
+      <th><%= t "order.phone" %></th>
+      <th><%= t "order.total" %> </th>
+      <th><%= t "order.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @orders.any? %>
+      <%= render partial: "order", collection: @orders, as: "order" %>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @history_order %>

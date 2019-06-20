@@ -1,4 +1,13 @@
 en:
+  mailer:
+    id: "Product_id"
+    name: "Name"
+    quantity: "Quantity"
+    price: "Price"
+    status: "status"
+    sum: "Total price"
+    welcome: "Thanks for payment! Please see order detais bellow"
+    hello: "Hello"
   cart:
     welcome: Welcome come to your cart
     add_fail: "Product add fail"
@@ -27,7 +36,18 @@ en:
     not_success: "Payment not success"
     require_login: "Please login to checkout"
     form_order: "Form order"
+  order:
+    history: "History"
+    name: "Name's order"
+    address: "Address "
+    total: "Total amount"
+    phone: "Phone"
+    status: "Status"
+    link_email: Please check %{email} to view all your product
+    email: "Email"
+    subject: "Your order"
   currency: "vnd"
+
   product_price: "%{price} vnd"
   alert_message:
     delete: "The product will be deleted from the cart, are you sure?"

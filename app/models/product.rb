@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :order_details, dependent: :destroy
+  has_many :orders, through: :order_details
   enum status: {normal: 0, deleted: 1}
 
   scope :recently_view_product, (lambda do
