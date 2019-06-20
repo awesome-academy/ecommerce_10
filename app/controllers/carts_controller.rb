@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def add_to_cart
-    product_id = params[:carts][:product_id].to_i
+    product_id = params[:carts][:product_id]
     add_product_to_cart product_id
     redirect_to cart_path
   end

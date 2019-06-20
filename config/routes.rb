@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     delete "/cart", to: "carts#destroy"
     patch "/cart", to: "carts#update"
 
+    resources :orders, only: %i(new create index)
     resources :users, only: %i(new create)
     resources :products, only: %i(show index)
     resources :categories, only: %i(show index)

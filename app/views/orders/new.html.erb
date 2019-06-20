@@ -1,0 +1,36 @@
+<div class="container">
+  <div id="content">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4><%= t "checkout.form_order" %></h4>
+          <div class="space20">&nbsp;</div>
+            <%= form_for @order do |f| %>
+              <%= render "shared/error_messages", object: @order %>
+
+              <div class="form-group">
+                <%= f.label :name_order, t("cart.name") %>
+                <%= f.text_field :name_order, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :phone_order, t("cart.phone") %>
+                <%= f.text_field :phone_order, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :address_order, t("cart.address") %>
+                <%= f.text_field :address_order, class: "form-control" %>
+              </div>
+                <%= f.hidden_field :total_amount, value: @sum_total %>
+              <div class="your-order-item">
+                <div class="pull-left"><p class="your-order-f18"><%= t("cart.sum_money") %>:</p></div>
+                <div class="pull-right"><h5 class="color-black"><%= t("product_price", price: @sum_total) %></h5></div>
+              </div>
+              <div class="text-center">
+                <%= f.submit t("cart.payment"), class: "btn btn-success btn-lg btn-block" %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+  </div> <!-- #content -->
+</div> <!-- .container -->

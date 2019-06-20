@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_015355) do
   create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "product_id"
     t.integer "quantity"
-    t.float "amount", default: 0.0
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_015355) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name_order"
     t.string "address_order"
     t.datetime "date_order"
     t.string "phone_order"
