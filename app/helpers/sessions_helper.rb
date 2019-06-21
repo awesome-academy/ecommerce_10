@@ -11,6 +11,12 @@ module SessionsHelper
     current_user.present?
   end
 
+  def logged_in_user
+    return if logged_in?
+    flash[:danger] = t "checkout.require_login"
+    redirect_to login_path
+  end
+
   def log_out
     session.delete(:user_id)
     @current_user = nil

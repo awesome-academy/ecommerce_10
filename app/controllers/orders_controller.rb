@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
-  def index; end
+  before_action :logged_in_user, only: %i(index new create)
+
+  def index
+    @orders = current_user.orders.new_order.paginate page: params[:page],
+      per_page: Settings.history_order
+  end
 
   def new
-    unless logged_in?
-      flash[:danger] = t "checkout.require_login"
-      redirect_to login_path
-    end
     @order = Order.new
     @carts =  load_cart_session
     @products = Product.find_multi_ids @carts.keys
@@ -19,6 +20,7 @@ class OrdersController < ApplicationController
       @order = current_user.orders.build order_param
       @order.save
       update_order_detail @carts, @order
+      send_mails current_user, @order, @carts
       remove_all_cart
       flash[:success] = t "checkout.success"
       redirect_to root_path
@@ -29,6 +31,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def order_param
     params.require(:order).permit :name_order, :phone_order,
       :address_order, :total_amount
@@ -38,5 +41,9 @@ class OrdersController < ApplicationController
     carts.each do |product_id, quantity|
       order.order_details.create! product_id: product_id, quantity: quantity
     end
+  end
+
+  def send_mails user, order, carts
+    OrderMailer.order_email(user, order, carts).deliver
   end
 end

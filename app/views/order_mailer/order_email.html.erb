@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      .text{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= t "mailer.hello" %> <%= @user.name %></h1>
+    <p>
+      <%= t "mailer.welcome" %>
+    </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t "mailer.name" %></th>
+          <th><%= t "mailer.quantity" %></th>
+          <th><%= t "mailer.price" %></th>
+          <th><%= t "mailer.status" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "product", collection: @order.products, as: "product" %>
+      </tbody>
+      <h1><%= t "mailer.sum" %>: <%= t("product_price", price: @total_price) %> </h1>
+    </table>
+  </body>
+</html>
