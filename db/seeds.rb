@@ -12,7 +12,7 @@ for i in 1..5
                         total_amount: "500000",
                         user_id: user.id)
 
-  category = Category.create!(name: "Category " + i.to_s,
+  category = Category.create!(name_category: "Category " + i.to_s,
                  description: Faker::Lorem.sentence)
 
   for j in 1..5

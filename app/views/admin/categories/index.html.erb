@@ -1,0 +1,28 @@
+<h1>Admin Categories</h1>
+
+<table class="table table-hover">
+  <head>
+    <tr>
+      <th><%= t "category.id" %></th>
+      <th><%= t "category.name" %></th>
+      <th><%= t"category.description" %></th>
+    <tr>
+  <thead>
+
+  <tbody>
+    <%= will_paginate %>
+    <% @categories.each do |admin_category| %>
+      <tr>
+        <td><%= admin_category.id %></td>
+        <td><%= admin_category.name_category %></td>
+        <td><%= admin_category.description %></td>>
+        <td><%= link_to t("admin.edit"), edit_admin_category_path(admin_category), class: "btn btn-success" %></td>
+        <td><%= link_to t("admin.destroy"), admin_category_path(admin_category), method: :delete, data: {confirm: t("admin.confirm_delete")}, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Admin Category", new_admin_category_path %>

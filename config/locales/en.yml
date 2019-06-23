@@ -1,4 +1,5 @@
 en:
+  back_key: "Back"
   admin:
     update_fail: "Update fail"
     update_success: "Update success"
@@ -10,6 +11,24 @@ en:
     destroy: "Destroy"
     confirm_delete: "Are you sure?"
     list_user: "List user"
+    create_success: "Create success"
+    create_fail: "Create errors"
+    role_user: "%{role}"
+  category:
+    not_found: "Category not found"
+    description: "Description"
+    id: "Id"
+    name: "Name"
+  product_admin:
+    id: "Id"
+    name: "Name"
+    description: "Description"
+    quantity: "Quantity"
+    price: "Price"
+    category: "Category"
+    status: "Status"
+    image: "Image"
+    new: "New product"
   mailer:
     id: "Product_id"
     name: "Name"

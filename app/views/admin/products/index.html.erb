@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Products</h1>
+<%= will_paginate %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t "product_admin.name" %></th>
+      <th><%= t "product_admin.description" %></th>
+      <th><%= t "product_admin.quantity" %></th>
+      <th><%= t "product_admin.price" %></th>
+      <th><%= t "product_admin.category" %></th>
+      <th><%= t "product_admin.status" %></th>
+      <th><%= t "product_admin.image" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.quantity %></td>
+        <td><%= t("product_price", price: product.price) %></td>
+        <td><%= product.name_category %></td>
+        <td><%= product.status %></td>
+        <td></td>
+        <td><%= link_to t("admin.edit"), edit_admin_product_path(product) %></td>
+        <td><%= link_to t("admin.destroy"), admin_product_path(product.id), method: :delete, data: {confirm: t("admin.confirm_delete")} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Admin Product", new_admin_product_path %>

@@ -1,0 +1,23 @@
+<%= form_for [:admin, @product] do |f| %>
+  <%= f.label :name, t("sessions.new.name") %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :description, t("category.description") %>
+  <%= f.text_area(:description, size: Settings.size_text_area) %>
+
+  <%= f.label :quantity, t("mailer.quantity") %>
+  <%= f.number_field :quantity, class: "form-control" %>
+
+  <%= f.label :price, t("mailer.price")  %>
+  <%= f.number_field :price, class: "form-control" %>
+
+  <%= f.label :status, t("mailer.status") %>
+  <%= f.select(:status, load_status_option, {include_blank: true}, class: "form-control") %>
+
+  <%= f.label :category, "Category" %>
+  <%= f.select(:category_id, load_categories_option, {include_blank: false}, class: "form-control") %>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <%= f.label :category, "Category" %>
+<% end %>

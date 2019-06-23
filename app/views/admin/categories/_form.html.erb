@@ -1,0 +1,13 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name_category, t("sessions.new.name") %>
+  <%= f.text_field :name_category, class: "form-control" %>
+
+  <%= f.label :description, t("category.description") %>
+  <%= f.text_area(:description, size: Settings.size_text_area) %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

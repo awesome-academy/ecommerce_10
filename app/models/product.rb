@@ -5,9 +5,18 @@ class Product < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_many :orders, through: :order_details
   enum status: {normal: 0, deleted: 1}
+  delegate :name_category, to: :category
 
   scope :recently_view_product, (lambda do
     order(viewer: :DESC).limit(Settings.limit_product)
   end)
   scope :find_multi_ids, ->(ids){where id: ids}
+  scope :product_active, ->{where status: 0}
+  validates :name, presence: true,
+    length: {maximum: Settings.length_name_maximum}
+  validates :description, presence: true
+  validates :quantity, presence: true
+  validates :price, presence: true
+  validates :status, presence: true
+  validates :category_id, presence: true
 end
