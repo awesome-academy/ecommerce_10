@@ -11,4 +11,13 @@ module ApplicationHelper
     return unless image
     image.images.first.url_path
   end
+
+  def load_roles_option
+    User.roles.map{|k, _v| [k, k]}
+  end
+
+  def execute_del_user user
+    orders = user.orders.waiting
+    orders.each(&:cancel!)
+  end
 end

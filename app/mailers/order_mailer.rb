@@ -6,7 +6,7 @@ class OrderMailer < ApplicationMailer
     @order = order
     @carts = carts
     @total_price = sum_total_price @order, @carts
-    mail to: @user.email, subject: t "order.subject"
+    mail to: @user.email, subject: t("order.subject")
   end
 
   private

@@ -1,0 +1,20 @@
+<%= form_for [:admin, @user] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name, t("sessions.new.name") %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :email, t("sessions.new.email") %>
+  <%= f.email_field :email, class: "form-control" %>
+
+  <%= f.label :password, t("sessions.new.password") %>
+  <%= f.password_field :password, class: "form-control" %>
+
+  <%= f.label :password_confirmation, t("sessions.new.confirm") %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+
+  <%= f.label :role, t("admin.role") %>
+  <%= f.select(:role, load_roles_option, {include_blank: true}, class: "form-control") %>
+
+  <%= f.submit t("cart.update"), class: "btn btn-primary" %>
+<% end %>

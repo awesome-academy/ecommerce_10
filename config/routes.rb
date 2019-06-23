@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     delete "/cart", to: "carts#destroy"
     patch "/cart", to: "carts#update"
 
+    namespace :admin do
+      resources :users
+    end
     resources :orders, only: %i(new create index)
-    resources :users, only: %i(new create)
+    resources :users, only: %i(new create edit update)
     resources :products, only: %i(show index)
     resources :categories, only: %i(show index)
   end
