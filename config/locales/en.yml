@@ -1,4 +1,15 @@
 en:
+  admin:
+    update_fail: "Update fail"
+    update_success: "Update success"
+    delete_success: "Delete success"
+    delete_fail: "Delete fails"
+    user_invalid: "User invalid"
+    role: "Role"
+    edit: "Edit"
+    destroy: "Destroy"
+    confirm_delete: "Are you sure?"
+    list_user: "List user"
   mailer:
     id: "Product_id"
     name: "Name"
@@ -88,7 +99,12 @@ en:
       active_messages: "Account not activated. Check your email for the activation link."
       login_access: "Login success"
   users:
+    id: "Id"
+    name: "Name"
+    email: "Email"
+    role: "Role"
     show:
       user_invalid: "User invalid"
     create:
       welcome: "Welcome to booking tour"
+

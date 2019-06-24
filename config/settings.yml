@@ -18,3 +18,4 @@ size_image: "270x320"
 size_image_cart: "50x50"
 minimum: 1
 history_order: 5
+admin_user: 5
