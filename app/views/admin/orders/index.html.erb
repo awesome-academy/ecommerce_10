@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Orders</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t "order.name" %></th>
+      <th><%= t "order.address" %></th>
+      <th><%= t "order.phone" %></th>
+      <th><%= t "order.total" %> </th>
+      <th><%= t "order.status" %></th>
+      <th><%= t "order.email" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "order", collection: @orders, as: "order" %>
+  </tbody>
+</table>
