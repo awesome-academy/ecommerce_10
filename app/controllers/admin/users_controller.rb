@@ -24,11 +24,10 @@ class Admin::UsersController < ApplicationController
     if @user.update_attribute :activated, false
       flash[:success] = t "admin.delete_success"
       execute_del_user @user
-      redirect_to admin_users_path
     else
       flash[:danger] = t "admin.delete_fail"
-      redirect_to admin_users_path
     end
+    redirect_to admin_users_path
   end
 
   private

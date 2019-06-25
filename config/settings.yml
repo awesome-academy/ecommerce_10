@@ -16,6 +16,15 @@ paginate_view_home: 8
 limit_product: 8
 size_image: "270x320"
 size_image_cart: "50x50"
+size_text_area: "5x10"
 minimum: 1
 history_order: 5
 admin_user: 5
+categories_admin: 5
+min_price: 0
+category:
+  length_minimum: 5
+description:
+  length_minimum: 25
+admin:
+  product_limit: 5

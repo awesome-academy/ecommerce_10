@@ -16,6 +16,14 @@ module ApplicationHelper
     User.roles.map{|k, _v| [k, k]}
   end
 
+  def load_status_option
+    Product.statuses.map{|k, _v| [k, k]}
+  end
+
+  def load_categories_option
+    Category.all.map{|product| [product.name_category, product.id]}
+  end
+
   def execute_del_user user
     orders = user.orders.waiting
     orders.each(&:cancel!)
