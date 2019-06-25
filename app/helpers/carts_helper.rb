@@ -43,6 +43,11 @@ module CartsHelper
     quantity * price
   end
 
+  def load_size_cart
+    load_cart_session
+    @carts.size
+  end
+
   def load_sum_total carts, products
     result = 0
     products.each do |product|

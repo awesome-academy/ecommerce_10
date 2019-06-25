@@ -15,7 +15,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   def default_url *_args
     # "/assets/default.png"
-    "/uploads/#{model.class.to_s.underscore}/#{mounted_as}"
+     "/uploads/#{model.class.to_s.underscore}/#{mounted_as}/product#{rand(1..25)}.jpg"
   end
 
   def extension_whitelist

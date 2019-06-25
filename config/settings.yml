@@ -25,6 +25,6 @@ min_price: 0
 category:
   length_minimum: 5
 description:
-  length_minimum: 25
+  length_minimum: 5
 admin:
   product_limit: 5

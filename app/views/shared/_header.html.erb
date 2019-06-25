@@ -10,9 +10,19 @@
       <div class="pull-right auto-width-right">
         <ul class="top-details menu-beta l-inline">
           <% if logged_in? %>
-            <li> <%= link_to "#" do  %>
+            <li> <%= link_to edit_user_path(current_user) do  %>
               <i class="fa fa-user"></i> <%= t ".account" %>
             </li>
+            <% end %>
+            <li> <%= link_to orders_path do  %>
+              <i class="fa fa-user"></i> History orders
+            </li>
+            <% end %>
+            <% if current_user.role == "admin" %>
+              <li> <%= link_to admin_users_path do  %>
+                <i class="fa fa-user"></i> Admin page
+              </li>
+            <% end %>
             <% end %>
             <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
           <% else %>
@@ -33,38 +43,25 @@
         </div>
         <div class="pull-right beta-components space-left ov">
           <div class="space10">&nbsp;</div>
-          <div class="beta-comp">
-            <form role="search" method="get" id="searchform" action="/">
-                  <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
-                  <button class="fa fa-search" type="submit" id="searchsubmit"></button>
-            </form>
-          </div>
-
+          <%= form_tag search_path, method: :GET do %>
+            <div class="beta-comp">
+                <div style="display: block;">
+                  <%= text_field_tag :p %>
+                </div>
+            </div>
+            <div class="beta-comp">
+              <div>
+                <%= button_tag :submit, class: "btn btn-secondary btn-number" do %>
+                      <i class="fa fa-search"></i>
+                    <% end %>
+              </div> <!-- .cart -->
+            </div>
+          <% end %>
           <div class="beta-comp">
             <div class="cart">
-              <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
-              <div class="beta-dropdown cart-body" style="width:300px;">
-                <div class="cart-item">
-                  <div class="media">
-                    <a class="pull-left" href="#"><img src="assets/dest/images/products/cart/1.png" alt=""></a>
-                    <div class="media-body">
-                      <span class="cart-item-title">Sample Woman Top</span>
-                      <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                      <span class="cart-item-amount">1*<span>$49.50</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cart-caption">
-                  <div class="cart-total text-right" style="text-align: center;">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
-                  <div class="clearfix"></div>
-
-                  <div class="center">
-                    <div class="space10">&nbsp;</div>
-                    <a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
+              <%= link_to cart_path do %>
+                <i class="fa fa-shopping-cart"></i> Cart (<%= load_size_cart %>) <i class="fa fa-chevron-down"></i>
+              <% end %>
             </div> <!-- .cart -->
           </div>
         </div>

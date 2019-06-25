@@ -38,6 +38,7 @@ en:
     sum: "Total price"
     welcome: "Thanks for payment! Please see order detais bellow"
     hello: "Hello"
+    mail_update: "Update order"
   cart:
     welcome: Welcome come to your cart
     add_fail: "Product add fail"
@@ -127,4 +128,3 @@ en:
       user_invalid: "User invalid"
     create:
       welcome: "Welcome to shopping online"
-

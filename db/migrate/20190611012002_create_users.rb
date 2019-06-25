@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :reset_digest
       t.boolean :activated, default: true
       t.integer :role, default: 1
-
       t.timestamps
     end
   end
