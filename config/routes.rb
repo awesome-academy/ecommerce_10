@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :products
       resources :orders, only: %i(index edit update)
+      resources :order_details, only: :show
     end
     resources :orders, only: %i(new create index)
     resources :users, only: %i(new create edit update)

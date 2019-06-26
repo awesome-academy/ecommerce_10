@@ -6,5 +6,5 @@
   <td><%= order.status %></td>
   <td><%= order.user.email %></td>
   <td><%= link_to t("admin.edit"), edit_admin_order_path(order), class: "btn btn-success" %></td>
-  <td><%= link_to t("admin.destroy"), admin_order_path(order), method: :delete, data: {confirm: t("admin.confirm_delete")}, class: "btn btn-danger" %></td>
+  <td><%= link_to "View_detail", admin_order_detail_path(order), class: "btn btn-success" %></td>
 </tr>

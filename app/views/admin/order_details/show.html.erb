@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Order details</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t "product_admin.name" %></th>
+      <th><%= t "product_admin.price" %></th>
+      <th><%= t "product_admin.quantity" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @order_details.any? %>
+      <% @order_details.each do |order_detail| %>
+        <tr>
+          <td><%= order_detail.name %></td>
+          <td><%= t("product_price", price: order_detail.price) %></td>
+          <td><%= order_detail.quantity %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
