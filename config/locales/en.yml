@@ -76,6 +76,7 @@ en:
     link_email: Please check %{email} to view all your product
     email: "Email"
     subject: "Your order"
+    new_order: "New Admin Order"
   currency: "vnd"
 
   product_price: "%{price} vnd"

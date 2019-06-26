@@ -9,30 +9,38 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @image = @product.images.build
   end
 
   def edit; end
 
   def create
-    @product = Product.new admin_product_params
-    if @product.save
-      flash[:success] = t "admin.create_success"
-      redirect_to admin_products_path
-    else
-      flash[:danger] = t "admin.create_fail"
-      render :new
+    Product.transaction do
+      @product = Product.new admin_product_params
+      @product.save
+      params[:images]["url_path"].each do |a|
+        @image = @product.images.create!(url_path: a)
+      end
     end
+    flash[:success] = t "admin.update_success"
+    redirect_to admin_products_path
+  rescue StandardError
+    flash[:danger] = t "admin.update_fail"
+    render :edit
   end
 
   def update
-    if @product.update_attributes admin_product_params
-      flash[:success] = t "admin.update_success"
-      redirect_to admin_categories_path
-      redirect_to admin_products_path
-    else
-      flash[:danger] = t "admin.update_fail"
-      render :edit
+    Product.transaction do
+      @product.update_attributes admin_product_params
+      params[:images]["url_path"].each do |a|
+        @image = @product.images.create!(url_path: a)
+      end
     end
+    flash[:success] = t "admin.update_success"
+    redirect_to admin_products_path
+  rescue StandardError
+    flash[:danger] = t "admin.update_fail"
+    render :edit
   end
 
   def destroy
@@ -54,7 +62,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def admin_product_params
-    params.require(:product).permit :name, :description, :quantity,
-      :price, :status, :category_id
+    params.require(:product).permit(:name, :description, :quantity,
+      :price, :status, :category_id,
+      images_attributes: [:id, :url_path])
   end
 end

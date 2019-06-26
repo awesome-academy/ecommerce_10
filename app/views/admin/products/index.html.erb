@@ -24,7 +24,7 @@
         <td><%= t("product_price", price: product.price) %></td>
         <td><%= product.name_category %></td>
         <td><%= product.status %></td>
-        <td></td>
+        <td><%= image_tag (get_image product), size: Settings.size_image_cart %></td>
         <td><%= link_to t("admin.edit"), edit_admin_product_path(product) %></td>
         <td><%= link_to t("admin.destroy"), admin_product_path(product.id), method: :delete, data: {confirm: t("admin.confirm_delete")} %></td>
       </tr>

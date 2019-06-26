@@ -6,7 +6,8 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_details
   enum status: {normal: 0, deleted: 1}
   delegate :name_category, to: :category
-
+  accepts_nested_attributes_for :images, allow_destroy: true,
+    reject_if: proc{|attributes| attributes["url_path"].blank?}
   scope :recently_view_product, (lambda do
     order(viewer: :DESC).limit(Settings.limit_product)
   end)

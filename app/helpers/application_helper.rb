@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def get_image image
     return unless image
-    image.images.first.url_path
+    image.images.first.url_path.url
   end
 
   def load_roles_option
@@ -22,6 +22,10 @@ module ApplicationHelper
 
   def load_categories_option
     Category.all.map{|product| [product.name_category, product.id]}
+  end
+
+  def load_order_status
+    Order.statuses.map{|k, _v| [k, k]}
   end
 
   def execute_del_user user

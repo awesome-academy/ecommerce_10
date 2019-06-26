@@ -1,0 +1,21 @@
+<%= form_for [:admin, @order] do |f| %>
+  <%= f.label :name_order, t("sessions.new.name") %>
+  <%= f.text_field :name_order, class: "form-control" %>
+
+  <%= f.label :address_order, t("mailer.quantity") %>
+  <%= f.text_field :address_order, class: "form-control" %>
+
+  <%= f.label :phone_order, t("mailer.quantity") %>
+  <%= f.text_field :phone_order, class: "form-control" %>
+
+  <%= f.label :total_amount, t("mailer.quantity") %>
+  <%= f.number_field :total_amount, class: "form-control" %>
+
+
+  <%= f.label :status, t("mailer.status") %>
+  <%= f.select(:status, load_order_status, {include_blank: true}, class: "form-control") %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

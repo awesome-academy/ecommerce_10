@@ -1,0 +1,10 @@
+<tr>
+  <td><%= order.name_order %></td>
+  <td><%= order.address_order %></td>
+  <td><%= order.phone_order %></td>
+  <td><%= t("product_price", price: order.total_amount) %></td>
+  <td><%= order.status %></td>
+  <td><%= order.user.email %></td>
+  <td><%= link_to t("admin.edit"), edit_admin_order_path(order), class: "btn btn-success" %></td>
+  <td><%= link_to t("admin.destroy"), admin_order_path(order), method: :delete, data: {confirm: t("admin.confirm_delete")}, class: "btn btn-danger" %></td>
+</tr>
