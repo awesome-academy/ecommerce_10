@@ -1,5 +1,6 @@
 en:
   back_key: "Back"
+  add_cart: "Add to cart"
   admin:
     update_fail: "Update fail"
     update_success: "Update success"
@@ -40,6 +41,9 @@ en:
     sum: "Total price"
     welcome: "Thanks for payment! Please see order detais bellow"
     hello: "Hello"
+    mail_update: "Update order"
+    body_update: "Your order was updated, please see detail at "
+    here: "Here"
   cart:
     welcome: Welcome come to your cart
     add_fail: "Product add fail"
@@ -79,8 +83,10 @@ en:
     email: "Email"
     subject: "Your order"
     new_order: "New Admin Order"
+    update: "Update status"
+    view_detail: "View_detail"
+    edit: "Editing status order"
   currency: "vnd"
-
   product_price: "%{price} vnd"
   alert_message:
     delete: "The product will be deleted from the cart, are you sure?"
@@ -100,6 +106,8 @@ en:
       help: "Help"
       contact: "Contact"
       category: "All category"
+      history: "History orders"
+      admin_page: "Admin page"
     error_messages:
       messages:
         one: "The form contains %{count} error."
@@ -125,6 +133,7 @@ en:
     name: "Name"
     email: "Email"
     role: "Role"
+    update: "Update your profile"
     show:
       user_invalid: "User invalid"
     create:

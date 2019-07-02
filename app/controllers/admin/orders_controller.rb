@@ -10,7 +10,7 @@ class Admin::OrdersController < ApplicationController
   def edit; end
 
   def update
-    if @order.update_attributes order_params
+    if @order.update_attribute :status, params[:order][:status]
       send_mails @order
       flash[:success] = t "admin.update_success"
       redirect_to admin_orders_path
