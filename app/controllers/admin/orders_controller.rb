@@ -10,10 +10,10 @@ class Admin::OrdersController < ApplicationController
   def edit; end
 
   def update
-    if @order.update_attributes
+    if @order.update_attributes order_params
       send_mails @order
       flash[:success] = t "admin.update_success"
-      redirect_to admin_order_path
+      redirect_to admin_orders_path
     else
       flash[:danger] = t "admin.update_fail"
       render :edit
@@ -35,6 +35,6 @@ class Admin::OrdersController < ApplicationController
   end
 
   def send_mails order
-    OrderMailer.order_email(order).deliver
+    OrderMailer.update_order(order).deliver
   end
 end
