@@ -9,6 +9,11 @@ class OrderMailer < ApplicationMailer
     mail to: @user.email, subject: t("order.subject")
   end
 
+  def update_order order
+    @order = order
+    mail to: @order.user.email, subject: t("mailer.mail_update")
+  end
+
   private
 
   def sum_total_price order, carts

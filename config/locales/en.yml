@@ -19,6 +19,8 @@ en:
     description: "Description"
     id: "Id"
     name: "Name"
+  product:
+    product_invalid: "Product not found"
   product_admin:
     id: "Id"
     name: "Name"
