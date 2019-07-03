@@ -28,3 +28,6 @@ description:
   length_minimum: 5
 admin:
   product_limit: 5
+order:
+  cancle: 3
+  waiting: "waiting"

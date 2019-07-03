@@ -4,4 +4,7 @@
   <td><%= order.phone_order %></td>
   <td><%= t("product_price", price: order.total_amount) %></td>
   <td><%= order.status %></td>
+  <%  if order.status == Settings.order.waiting %>
+    <td><%= link_to t("order.destroy"), order_path(order.id), method: :delete, data: {confirm: t("admin.confirm_delete")}, class: "btn btn-danger" %></td>
+  <% end %>
 </tr>
