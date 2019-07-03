@@ -1,3 +1,11 @@
-<h1>Editing Admin Order</h1>
+<h1><%= t "order.edit" %></h1>
 
-<%= render "form", admin_order: @admin_order %>
+<%= form_for [:admin, @order] do |f| %>
+  <%= render "shared/error_messages", object: @order %>
+  <%= f.label :status, t("mailer.status") %>
+  <%= f.select(:status, load_order_status, {include_blank: true}, class: "form-control") %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

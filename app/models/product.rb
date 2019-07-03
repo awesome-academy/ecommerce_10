@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   scope :find_multi_ids, ->(ids){where id: ids}
   scope :product_active, ->{where status: 0}
   scope :new_product, ->{order(created_at: :DESC)}
-  scope :search_by_name, ->(search_text){where "name LIKE ?", "%#{search_text}%"} if search_text.present?
+  scope :search_by_name, ->(search_text){where "name LIKE ?", "%#{search_text}%" if search_text.present?}
 
   validates :name_category, presence: true,
     length: {maximum: Settings.length_name_maximum}
