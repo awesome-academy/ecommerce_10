@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :orders, only: %i(index edit update)
       resources :order_details, only: :show
     end
-    resources :orders, only: %i(new create index)
+    resources :orders, except: %i(edit update show)
     resources :users, only: %i(new create edit update)
     resources :products, only: %i(show index)
     resources :categories, only: %i(show index)

@@ -32,4 +32,9 @@ module ApplicationHelper
     orders = user.orders.waiting
     orders.each(&:cancel!)
   end
+
+  def get_product order_detail
+    return unless order_detail
+    order_detail.product
+  end
 end

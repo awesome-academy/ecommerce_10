@@ -86,6 +86,11 @@ en:
     update: "Update status"
     view_detail: "View_detail"
     edit: "Editing status order"
+    action: "Action"
+    invalid: "Order invalid"
+    order_cancle: "Order was cancled"
+    order_cancle_error: "Order can not cancle"
+    destroy: "Cancel order"
   currency: "vnd"
   product_price: "%{price} vnd"
   alert_message:
