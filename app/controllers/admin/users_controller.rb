@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   layout "application_admin"
-  before_action :logged_in_user, only: %i(index new)
+  before_action :authenticate_user!, only: %i(index new)
   before_action :load_user, only: %i(edit destroy update)
 
   def index

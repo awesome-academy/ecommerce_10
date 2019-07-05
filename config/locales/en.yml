@@ -1,6 +1,17 @@
 en:
   back_key: "Back"
   add_cart: "Add to cart"
+  devise:
+    update: "Update"
+    resend_confirm: "Resend confirmation instructions"
+    resend_confirm_button: "Resend confirmation instructions"
+    new_password: "New Password"
+    confirm_new_pass: "Confirm new password"
+    change_pass: "Change my password"
+    send_mail_reset: "Send me reset password instructions"
+    cancle_account: "Cancel my account"
+    sign_up: "Sign up"
+    forgot_pass: "Forgot your password?"
   admin:
     update_fail: "Update fail"
     update_success: "Update success"
@@ -129,6 +140,7 @@ en:
       signup: "Sign up"
       new_user: "New user?"
       signup_now: "Sign up now!"
+      current_password: "Current password"
     create:
       login_fail: "Invalid email/password combination"
       active_messages: "Account not activated. Check your email for the activation link."
