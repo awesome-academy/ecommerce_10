@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  include SessionsHelper
   include CartsHelper
   include ApplicationHelper
 
@@ -19,7 +18,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameterdevise_parameter_sanitizer.permit :sign_up, keys: [:name]
+    devise_parameter_sanitizer.permit :sign_up, keys: [:name]
     devise_parameter_sanitizer.permit :account_update, keys: [:name]
   end
 end

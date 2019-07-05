@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   enum role: {admin: 0, normal: 1}
   validates :name, presence: true,
-    length: {maximum: Settings.length_name_maximum
+    length: {maximum: Settings.length_name_maximum}
   scope :user_activated, ->{where activated: true}
 
   private
