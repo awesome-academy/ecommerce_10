@@ -6,10 +6,6 @@ Rails.application.routes.draw do
     get "/help", to: "static_pages#help"
     get "/contact", to: "static_pages#contact"
     get "/search", to: "static_pages#search"
-    get "/signup", to: "users#new"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     post "/add_cart", to: "carts#add_to_cart"
     get "/cart", to: "carts#show"
     delete "/cart", to: "carts#destroy"
@@ -26,5 +22,6 @@ Rails.application.routes.draw do
     resources :users, only: %i(new create edit update)
     resources :products, only: %i(show index)
     resources :categories, only: %i(show index)
+    devise_for :users, :path => "", :path_names => {:sign_in => "login", :sign_out => "logout", :edit => "profile", :confirmation => "confirmations"}
   end
 end
