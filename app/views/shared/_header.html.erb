@@ -9,25 +9,15 @@
       </div>
       <div class="pull-right auto-width-right">
         <ul class="top-details menu-beta l-inline">
-          <% if logged_in? %>
-            <li> <%= link_to edit_user_path(current_user) do  %>
-              <i class="fa fa-user"></i> <%= t ".account" %>
-            </li>
-            <% end %>
+          <% if !user_signed_in? %>
+            <li><%= link_to t(".login"), new_user_session_path %></li>
+            <li><%= link_to t(".signup"), new_user_registration_path %></li>
+          <% else %>
+            <li><%= link_to t(".logout"), destroy_user_session_path, method: :delete %></li>
             <li> <%= link_to orders_path do  %>
               <i class="fa fa-user"></i><%= t ".history" %>
             </li>
             <% end %>
-            <% if current_user.admin? %>
-              <li> <%= link_to admin_users_path do  %>
-                <i class="fa fa-user"></i><%= t ".admin_page" %>
-              </li>
-            <% end %>
-            <% end %>
-            <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to t(".register"), signup_path %></a></li>
-            <li><%= link_to t(".login"), login_path %></li>
           <% end %>
         </ul>
       </div>
