@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: %i(index new create)
+  authorize_resource
   before_action :load_orders, only: :destroy
 
   def index

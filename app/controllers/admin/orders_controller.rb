@@ -1,4 +1,4 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < Admin::BaseController
   layout "application_admin"
   before_action :load_orders, only: %i(edit update)
 

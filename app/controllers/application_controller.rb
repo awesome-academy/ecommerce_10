@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
   include CartsHelper
   include ApplicationHelper
 
+  rescue_from CanCan::AccessDenied do |exception|
+    if user_signed_in?
+      flash[:danger] = exception.message
+      redirect_to root_url
+    else
+      flash[:danger] = t "require_login"
+      redirect_to new_user_session_path
+    end
+  end
+
   private
 
   def set_locale

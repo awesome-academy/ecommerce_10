@@ -18,7 +18,13 @@
               <i class="fa fa-user"></i><%= t ".history" %>
             </li>
             <% end %>
-            <li><%= link_to "Change password", edit_user_registration_path %></li>
+            <li><%= link_to t(".change_password"), edit_user_registration_path %>
+            </li>
+            <% if can? :index, current_user %>
+              <li>
+                <%= link_to t(".admin_page"), admin_users_path %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>

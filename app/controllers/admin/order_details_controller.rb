@@ -1,4 +1,4 @@
-class Admin::OrderDetailsController < ApplicationController
+class Admin::OrderDetailsController < Admin::BaseController
   layout "application_admin"
 
   def show

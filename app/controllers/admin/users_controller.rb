@@ -1,6 +1,6 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
   layout "application_admin"
-  before_action :authenticate_user!, only: %i(index new)
+  load_and_authorize_resource
   before_action :load_user, only: %i(edit destroy update)
 
   def index

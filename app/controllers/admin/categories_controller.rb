@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   layout "application_admin"
   before_action :load_admin_categories, except: %i(new index create)
 

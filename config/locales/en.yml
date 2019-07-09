@@ -1,6 +1,8 @@
 en:
   back_key: "Back"
   add_cart: "Add to cart"
+  require_login: "Please login to continue"
+  reject_access: "You don't have access this page"
   devise:
     update: "Update"
     resend_confirm: "Resend confirmation instructions"
