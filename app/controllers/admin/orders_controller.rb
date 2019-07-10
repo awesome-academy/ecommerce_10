@@ -3,8 +3,10 @@ class Admin::OrdersController < Admin::BaseController
   before_action :load_orders, only: %i(edit update)
 
   def index
-    @orders = Order.new_order.paginate page: params[:page],
+    @search = Order.search params[:q]
+    @orders = @search.result.new_order.paginate page: params[:page],
       per_page: Settings.admin.product_limit
+    @search.build_condition
   end
 
   def edit; end
