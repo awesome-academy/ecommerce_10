@@ -1,10 +1,23 @@
 <h1 style="text-align: center;"> <%= t "admin.list_user" %> </h1>
+<%= search_form_for [:admin, @search], class: "form" do |f| %>
+  <div class="field">
+    <%= f.label :name_cont,t("ransack.search_name") %>
+    <%= f.text_field :name_cont, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :email_cont, t("ransack.search_email") %>
+    <%= f.email_field :email_cont, class: "form-control", min: Settings.one %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
 <table class="table table-hover">
   <thead>
     <tr>
       <th><%= t "users.id" %></th>
-      <th><%= t "users.name" %></th>
-      <th><%= t "users.email" %></th>
+      <th><%= sort_link @search, :name, t("users.name") %></th>
+      <th><%= sort_link @search, :email, t("users.email") %></th>
       <th><%= t "users.role" %></th>
     </tr>
   </thead>

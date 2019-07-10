@@ -4,7 +4,8 @@ class Admin::UsersController < Admin::BaseController
   before_action :load_user, only: %i(edit destroy update)
 
   def index
-    @users = User.user_activated.paginate page: params[:page],
+    @search = User.search params[:q]
+    @users = @search.result.user_activated.paginate page: params[:page],
       per_page: Settings.admin_user
   end
 

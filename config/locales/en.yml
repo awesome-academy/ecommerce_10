@@ -3,6 +3,11 @@ en:
   add_cart: "Add to cart"
   require_login: "Please login to continue"
   reject_access: "You don't have access this page"
+  ransack:
+    seach_name: "Search product by name: "
+    price_between: "Price between"
+    and: "And"
+    search_email: "Search product by email: "
   devise:
     update: "Update"
     resend_confirm: "Resend confirmation instructions"

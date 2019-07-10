@@ -3,7 +3,8 @@ class Admin::ProductsController < Admin::BaseController
   before_action :load_admin_products, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.product_active.paginate page: params[:page],
+    @search = Product.search params[:q]
+    @products = @search.result.product_active.paginate page: params[:page],
       per_page: Settings.admin.product_limit
   end
 

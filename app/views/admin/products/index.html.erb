@@ -1,15 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Admin Products</h1>
+
+<%= search_form_for [:admin, @search], class: "form" do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, t("ransack.search_name") %>
+    <%= f.text_field :name_cont, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :price_gteq, t("ransack.price_between") %>
+    <%= f.number_field :price_gteq, class: "form-control", min: Settings.one %>
+    <%= f.label :price_lteq, t("ransack.and") %>
+    <%= f.number_field :price_lteq, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 <%= will_paginate %>
+
 <table class="table table-hover">
   <thead>
     <tr>
-      <th><%= t "product_admin.name" %></th>
-      <th><%= t "product_admin.description" %></th>
-      <th><%= t "product_admin.quantity" %></th>
-      <th><%= t "product_admin.price" %></th>
-      <th><%= t "product_admin.category" %></th>
+      <th><%= sort_link @search, :name, t("product_admin.name") %></th>
+      <th><%= sort_link @search, :description, t("product_admin.description") %></th>
+      <th><%= sort_link @search, :quantity, t("product_admin.quantity") %></th>
+      <th><%= sort_link @search, :price, t("product_admin.price") %></th>
+      <th><%= sort_link @search, :category, t("product_admin.category") %></th>
       <th><%= t "product_admin.status" %></th>
       <th><%= t "product_admin.image" %></th>
     </tr>
